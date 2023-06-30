@@ -2,9 +2,9 @@ const http = require("http");
 const fs = require("fs");
 var requests = require("requests");
 const homeFile = fs.readFileSync("Home.html", "utf-8");
-//we get the whole placeholder and whole data from api as parameter from argument of the replace val function.
+
 const replaceVal = (tempVal, orgVal) => {
-  //   console.log(orgVal.main.temp);
+
   console.log(orgVal.weather[0].main);
   let temperature = tempVal.replace("{%tempval%}", orgVal.main.temp);
   temperature = temperature.replace("{%tempmin%}", orgVal.main.temp_min);
@@ -27,7 +27,7 @@ const server = http.createServer((req, res) => {
           .map((val) => replaceVal(homeFile, val))
           .join("");
         res.write(realTimeData);
-        // console.log(realTimeData);
+
       })
       .on("end", (err) => {
         if (err) return console.log("connection closed due to errors", err);
