@@ -246,7 +246,7 @@
       const curDate = document.getElementById("date");
       let weathercon = document.getElementById("weather"); //check that.
       const tempStatus = "{%tempstatus%}";
-      //condition to check sunny or cloudy
+      
       if (tempStatus == "Sunny") {
         weathercon.innerHTML =
           "<i class='fas  fa-sun' style='color: #eccc68;'></i>";
@@ -260,7 +260,7 @@
         weathercon.innerHTML =
           "<i class='fas  fa-cloud' style='color:#f1f2f6;'></i>";
       }
-      // function
+
       const getCurrentDay = () => {
         let currentTime = new Date();
         let weekDay = currentTime.toLocaleString("en-US", { weekday: "long" });
